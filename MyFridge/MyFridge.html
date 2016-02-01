@@ -1,6 +1,6 @@
 <head>
   <title>MyFridge</title>
-  <script src="code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 </head>
 
 <body>
@@ -22,14 +22,14 @@
   <div id="supermarket" class="box">
     <ul id="products">
       {{#each products}}
-      <li>{{productListItem}}</li>
+      <li>{{> productListItem}}</li>
       {{/each}}
     </ul>
   </div>
 </template>
 
 <template name="productListItem">
-  <img src="{{img}}" data-id={{_ID}} class="image-responsive product-image draggable" />
+  <img src="{{img}}" data-id={{_id}} class="image-responsive product-image draggable" />
 </template>
 
 <template name="fridge">

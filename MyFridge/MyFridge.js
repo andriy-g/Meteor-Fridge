@@ -9,6 +9,7 @@ if (Meteor.isClient) {
       });
     }
   });
+
   Template.productList.helpers({
     products: function () {
       return Products.find({
@@ -53,15 +54,6 @@ if (Meteor.isClient) {
       }
     });
   });
-  Template.fridge.onRendered(function () {
-    var templateInstance = this;
-    templateInstance.$('#fridge').droppable({
-      drop: function(evt, ui) {
-        var query = {_id: ui.draggable.data('id')};
-        var changes = { $set: {place: 'fridge'} };
-      }
-    });
-  });
 
 
   Template.productListItem.onRendered(function () {
@@ -89,13 +81,13 @@ if (Meteor.isServer) {
     Products.insert({
       name: 'Juice',
       img: '/juice.png',
-      place: 'supermarket'
+      place: 'fridge'
     });
 
     Products.insert({
       name: 'Bread',
       img: '/bread.png',
-      place: 'supermarket'
+      place: 'fridge'
     });
 
     Products.insert({
